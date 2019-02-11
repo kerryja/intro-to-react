@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>To Do List</title>
-  </head>
 
-  <body>
+<head>
+  <title>To Do List</title>
+</head>
 
-    <div id="app"></div>
+<body>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
-    <script type="text/babel">
-      class Todo extends React.Component {
+  <div id="app"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script type="text/babel">
+
+    class Todo extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          completed: 'Completed'
+          }
+      }
+        
         render() {
           return (
             <div>
-              <h1>To Do List</h1>
+              <h1>{this.props.name}</h1>
                 <ul>
-                  <li>Clean Kitchen</li>
-                  <li>Have mentor meeting</li>
-                  <li>Clean chinchilla cage</li>
-                  <li>Go to yoga</li>
+                  <li>Clean Kitchen: {this.state.completed}</li>
+                  <li>Go food shopping: {this.state.completed}</li>
+                  <li>Go to gym</li>
+                  <li>Make dinner</li>
                 </ul>
             </div>
           );
@@ -29,9 +38,9 @@
       }
 
       ReactDOM.render(
-        <Todo />, document.getElementById('app')
+        <Todo name = "Kerry's To Do List" />, document.getElementById('app')
       );
     </script>
-  </body>
+</body>
 
 </html>
